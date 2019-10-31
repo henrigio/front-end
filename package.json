@@ -22,7 +22,7 @@
     "build": "npm run clean",
     "prepackage": "echo Packaging $npm_package_config_service v\"$npm_package_version\" service",
     "package": " npm run build && npm run copy",
-    "postpackage": "cd $npm_package_config_build && gzip ../$npm_package_config_service_short-\"$npm_package_version\".zip . && cd ../.. && node_modules/.bin/rimraf $npm_package_config_build",
+    "postpackage": "cd $npm_package_config_build && tar -czvf ../$npm_package_config_service_short-\"$npm_package_version\".zip . && cd ../.. && node_modules/.bin/rimraf $npm_package_config_build",
     "predist": "echo Preparing to package $npm_package_config_service v\"$npm_package_version\" service",
     "dist": "npm run build && npm run package",
     "postdist": "echo Successfully packaged $npm_package_config_service v\"$npm_package_version\" service"
